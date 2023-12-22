@@ -64,37 +64,58 @@ public extension UIDevice {
 		
 		return "unknown"
 	}
-	
-	
-	//	func checkDeviceType() -> String {
-	//		switch UIDevice().type {
-	//		case .iPhoneSE, .iPhone6S, .iPhone6SPlus, .iPhone7, .iPhone7Plus, .iPhone8, .iPhone8Plus, .iPhoneSE2, .iPhoneSE3, .iPod1, .iPod2, .iPod3, .iPod4, .iPod5, .iPod6, .iPod7:
-	//			return "iPhone"
-	//		case .iPhoneX, .iPhoneXR, .iPhoneXS, .iPhoneXSMax, .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax, .iPhone13, .iPhone13Mini, .iPhone13Pro, .iPhone13ProMax, .iPhone14, .iPhone14Plus:
-	//			return "iPhoneX"
-	//		case .iPhone14Pro, .iPhone14ProMax, .iPhone15, .iPhone15Plus, .iPhone15Pro, .iPhone15ProMax:
-	//			return "iPhonePill"
-	//		case .iPad2, .iPad3, .iPad4, .iPad5, .iPad6, .iPad7, .iPad8, .iPad9, .iPadAir, .iPadAir2, .iPadAir3, .iPadMini, .iPadMini2, .iPadMini3, .iPadMini4, .iPadMini5, .iPadPro9_7, .iPadPro10_5, .iPadPro12_9, .iPadPro2_12_9:
-	//			return "iPad"
-	//		case .iPadAir4, .iPadAir5, .iPadPro11, .iPadPro2_11, .iPadPro3_12_9, .iPadPro3_11, .iPadPro4_11, .iPadPro4_12_9, .iPadPro5_12_9, .iPadPro6_12_9, .iPadMini6:
-	//			return "iPadX"
-	//		default:
-	//			print("Default Case")
-	//			return "iPhone"
-	//		}
-	//	}
-	//
-	//
-	//	func displayType() -> DisplayType {
-	//		switch UIDevice().type {
-	//		case .iPhoneX, .iPhoneXS, .iPhoneXSMax, .iPhone11Pro, .iPhone11ProMax, .iPhone12, .iPhone12Mini, .iPhone12Pro, .iPhone12ProMax, .iPhone13, .iPhone13Mini, .iPhone13Pro, .iPhone13ProMax, .iPhone14, .iPhone14Plus, .iPhone14Pro, .iPhone14ProMax:
-	//			return .OLED
-	//		case .iPadPro5_12_9, .iPadPro6_12_9:
-	//			return .MiniLed
-	//		default:
-	//			return .LCD
-	//		}
-	//	}
+
+	func getDeviceType() async -> String {
+		// iPhoneX refers to devices with a notch.
+		// iPhonePill refers to iPhones with a dynamic island.
+		// iPadX refers to iPads with no home button.
+		let modelName = await getModelName()
+		
+		switch modelName {
+		case "iPhone SE", "iPhone SE (2nd Generation)", "iPhone SE (3rd Generation)",
+			"iPhone 6s", "iPhone 6s Plus",
+			"iPhone 7", "iPhone 7 Plus",
+			"iPhone 8", "iPhone 8 Plus",
+			"iPod touch (1st generation)", "iPod touch (2nd generation)", "iPod touch (3rd generation)", "iPod touch (4th generation)", "iPod touch (5th generation)", "iPod touch (6th generation)", "iPod touch (7th generation)":
+			return "iPhone"
+		case "iPhone X",
+			"iPhone XR", "iPhone XS", "iPhone XS Max",
+			"iPhone 11", "iPhone 11 Pro", "iPhone 11 Pro Max",
+			"iPhone 12", "iPhone 12 mini", "iPhone 12 Pro", "iPhone 12 Pro Max",
+			"iPhone 13", "iPhone 13 mini", "iPhone 13 Pro", "iPhone 13 Pro Max",
+			"iPhone 14", "iPhone 14 Plus":
+			return "iPhoneX"
+		case "iPhone 14 Pro", "iPhone 14 Pro Max",
+			"iPhone 15", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15 Pro Max":
+			return "iPhonePill"
+		case "iPad 2", "iPad (3rd generation)", "iPad (4th generation)", "iPad (5th generation)", "iPad6th generation)", "iPad (7th generation)", "iPad (8th generation)", "iPad (9th generation)",
+			"iPad Air", "iPad Air 2", "iPad Air (3rd generation)",
+			"iPad mini", "iPad mini 2", "iPad mini 3", "iPad mini 4", "iPad mini (5th generation)",
+			"iPad Pro (9.7-inch)", "iPad Pro (10.5-inch)", "iPad Pro (12.9-inch)", "iPad Pro (12.9-inch) (2nd generation)":
+			return "iPad"
+		case "iPad mini (6th generation)",
+			"iPad Air (4th generation)", "iPad Air (5th generation)",
+			"iPad Pro (11-inch)", "iPad Pro (11-inch) (2nd generation)", "iPad Pro (11-inch) (3rd generation)", "iPad Pro (11-inch) (4th generation)",
+			"iPad Pro (12.9-inch) (3rd generation)", "iPad Pro (12.9-inch) (4th generation)", "iPad Pro (12.9-inch) (5th generation)", "iPad Pro (12.9-inch) (6th generation)":
+			return "iPadX"
+		default:
+			print("Default Case")
+			return "iPhone"
+		}
+	}
+
+	func getDisplayType() async -> DisplayType {
+		let modelName = await getModelName()
+		
+		switch modelName {
+		case "iPhone X", "iPhone XS", "iPhone XS Max", "iPhone 11 Pro", "iPhone 11 Pro Max", "iPhone 12", "iPhone 12 mini", "iPhone 12 Pro", "iPhone 12 Pro Max", "iPhone 13", "iPhone 13 mini", "iPhone 13 Pro", "iPhone 13 Pro Max", "iPhone 14", "iPhone 14 Plus", "iPhone 14 Pro", "iPhone 14 Pro Max":
+			return .OLED
+		case "iPad Pro (5th generation)", "iPad Pro (6th generation)":
+			return .MiniLed
+		default:
+			return .LCD
+		}
+	}
 }
 #endif
 #endif
