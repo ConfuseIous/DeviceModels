@@ -16,11 +16,6 @@ public extension UIDevice {
 	private struct ModelMapResponse: Codable {
 		let modelMap: [String: [String: String]]
 	}
-	
-	struct DeviceDetails {
-		var modelName: String
-		var deviceType: String
-	}
 
 	func getDeviceDetails() async -> DeviceDetails? {
 		var systemInfo = utsname()
@@ -54,6 +49,11 @@ public extension UIDevice {
 			return nil
 		}
 	}
+}
+
+public struct DeviceDetails {
+	public var modelName: String
+	public var deviceType: String
 }
 #endif
 #endif
