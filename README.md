@@ -1,6 +1,6 @@
 # DeviceModels
 
-DeviceModels is a simple package that helps you identify the model name and type of an iOS device.
+DeviceModels is a simple package that helps you identify the model name and type of an iOS device. It reads data from a JSON that I regularly update and is hosted on [GitHub](https://confuseious.github.io/DeviceModels/data.json), which means your app is always aware of the latest device models without your having to update it.
 
 ## Installation
 
@@ -22,12 +22,15 @@ print(details.modelType) // Eg: iPhoneX
 ```
 
 modelName refers to the name of the device as is displayed in the Settings app.
+
 modelType refers to the type of device and is one of the following:
 - iPhone (for all iPhones)
 - iPhoneX (for all iPhones with a notch)
 - iPhonePill (for all iPhones with a Dynamic Island)
 - iPad (for all iPads)
 - iPadX (for all iPads without a home button)
+
+Since the data is read from a remote JSON, you should ideally cache it (in UserDefaults, for example) for offline retrieval. However, you should refresh it periodically, as device details can sometimes change (such as when the user migrates to a new device and chooses to transfer data from their previous device).
 
 ## Contributing
 
