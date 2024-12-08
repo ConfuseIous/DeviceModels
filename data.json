@@ -583,6 +583,23 @@
         "iPhone16,2": {
             "name": "iPhone 15 Pro Max",
             "type": "iPhonePill"
+        },
+        
+        "iPhone17,1": {
+            "name": "iPhone 16 Pro",
+            "type": "iPhonePill"
+        },
+        "iPhone17,2": {
+            "name": "iPhone 16 Pro Max",
+            "type": "iPhonePill"
+        },
+        "iPhone17,3": {
+            "name": "iPhone 16",
+            "type": "iPhonePill"
+        },
+        "iPhone17,4": {
+            "name": "iPhone 16 Plus",
+            "type": "iPhonePill"
         }
     }
 }
