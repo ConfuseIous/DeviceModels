@@ -120,6 +120,22 @@
             "name": "iPad (9th generation)",
             "type": "iPad"
         },
+        "iPad13,18": {
+            "name": "iPad (10th generation)",
+            "type": "iPad"
+        },
+        "iPad13,19": {
+            "name": "iPad (10th generation)",
+            "type": "iPad"
+        },
+        "iPad15,7": {
+            "name": "iPad (11th generation)",
+            "type": "iPad"
+        },
+        "iPad15,8": {
+            "name": "iPad (11th generation)",
+            "type": "iPad"
+        },
         "iPad2,5": {
             "name": "iPad mini",
             "type": "iPad"
@@ -386,6 +402,22 @@
         },
         "iPad14,11": {
             "name": "iPad Air (6th generation)",
+            "type": "iPadX"
+        },
+        "iPad15,3": {
+            "name": "iPad Air (7th generation)",
+            "type": "iPadX"
+        },
+        "iPad15,4": {
+            "name": "iPad Air (7th generation)",
+            "type": "iPadX"
+        },
+        "iPad15,5": {
+            "name": "iPad Air (7th generation)",
+            "type": "iPadX"
+        },
+        "iPad15,6": {
+            "name": "iPad Air (7th generation)",
             "type": "iPadX"
         },
         "iPhone3,1": {
