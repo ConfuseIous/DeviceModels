@@ -18,6 +18,11 @@ public extension UIDevice {
 	}
 
 	func getDeviceDetails() async -> DeviceDetails? {
+		
+#if os(visionOS)
+		return DeviceDetails(modelName: "Apple Vision Pro", deviceType: "vision.pro")
+#endif
+		
 		var systemInfo = utsname()
 		uname(&systemInfo)
 		let modelCode = withUnsafePointer(to: &systemInfo.machine) {
