@@ -29,8 +29,9 @@ modelType refers to the type of device and is one of the following:
 - iPhonePill (for all iPhones with a Dynamic Island)
 - iPad (for all iPads)
 - iPadX (for all iPads without a home button)
+- vision.pro (for Apple Vision Pro)
 
-Since the data is read from a remote JSON, you should ideally cache it (in UserDefaults, for example) for offline retrieval. However, you should refresh it periodically, as device details can sometimes change (such as when the user migrates to a new device and chooses to transfer data from their previous device).
+Since the data is read from a remote JSON, you should cache the fetched Device Details (in UserDefaults, for example) for offline retrieval. However, you should refresh them periodically, as device details can sometimes change (such as when the user migrates to a new device and chooses to transfer data from their previous device).
 
 ## Contributing
 
