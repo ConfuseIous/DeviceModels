@@ -640,6 +640,22 @@
 		"iPhone17,5": {
 			"name": "iPhone 16e",
 			"type": "iPhoneX"
-		}
+		},
+        "iPhone18,1": {
+            "name": "iPhone 17 Pro",
+            "type": "iPhonePill"
+        },
+        "iPhone18,2": {
+            "name": "iPhone 17 Pro Max",
+            "type": "iPhonePill"
+        },
+        "iPhone18,3": {
+            "name": "iPhone 17",
+            "type": "iPhonePill"
+        },
+        "iPhone18,4": {
+            "name": "iPhone Air",
+            "type": "iPhonePill"
+        }
     }
 }
